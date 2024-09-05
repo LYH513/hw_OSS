@@ -3,9 +3,100 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <style>
+    .body{
+      font: 100% Verdana;
+      margin: 20px;
+      margin-top: 0;
+      padding-top: 20px;
+      line-height: 26px;
+    }
+    h1, h2, h3 {
+    color: #4CAF50;
+    }
+    .itemList{
+      padding: 0; 
+      overflow: auto; 
+    }
+    .item{
+      width: 165px;
+      float: left;
+      background-color: #555555;
+      color: #ffffff;
+      list-style-type: none;
+      margin: 4px;
+      padding: 2px;
+      text-align: center;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .item_on {
+      width: 165px;
+      float: left;
+      color: #ffffff;
+      list-style-type: none;
+      margin: 4px;
+      padding: 2px;
+      text-align: center;
+      cursor: pointer;
+      white-space: nowrap;
+      background-color: #04AA6D;
+      
+    }
+    .item:hover{
+      background-color: black;
+    }
+    .item_on:hover{
+      background-color: black;
+    }
+    a{
+      color: #000000;
+      text-decoration: underline;
+    }
+    a:hover{
+      color: #4CAF50;
+    }
+    .side_div{
+      background-color: #f1f1f1;
+      border: 1px solid #d4d4d4;
+      padding-left: 10px;
+    }
+    .bottom{
+      text-align: center;
+      padding: 10px;
+      font-size: 70%;
+      line-height: 14px;
+    }
+  </style>
 </head>
-<body>
-  style2
+<body style="margin: 0;" >
+  <div class="body">
+    <h1>Welcome to 유현's Homepage (22100548)</h1>
+    <p>Use the menu to select different Stylesheets</p>
+    <hr style="visibility:hidden;">
+    <ul class="itemList">
+      <li class="item" >Stylesheet 1</li>
+      <li class="item">Stylesheet 2</li>
+      <li class="item_on">Stylesheet 3</li>
+      <li class="item">Stylesheet 4</li>
+      <li class="item">No Stylesheet</li>
+    </ul>
+    <h1>Same Page Different Stylesheets</h1>
+    <p style="margin-bottom: 0;">This is a demonstration of how different stylesheets can change the layout of your HTML page. You can change the layout of this page by selecting different stylesheets in the menu, or by selecting one of the following links:</p>
+    <a href="https://creative-bunny-479e1e.netlify.app/style1.html" target="_self">Stylesheet1,</a>
+    <a href="https://creative-bunny-479e1e.netlify.app/style2.html" target="_self">Stylesheet2,</a>
+    <a href="https://creative-bunny-479e1e.netlify.app/example.html" target="_self">Stylesheet3,</a>
+    <a href="https://www.naver.com/" target="_self">Stylesheet4.</a>
+    <h2>No Styles</h2>
+    <p>This page uses DIV elements to group different sections of the HTML page. Click here to see how the page looks like with no stylesheet:
+      <br/>
+    <a href="https://creative-bunny-479e1e.netlify.app/index.html" target="_self">No Stylesheet</a>
+    </p>
+    <div class="side_div">
+      <h3>Side-Bar</h3>
+      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+    </div>
+      <p class="bottom" style="margin: 0;">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
+  </div>
 </body>
 </html>
