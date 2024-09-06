@@ -4,8 +4,182 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    .container{
+      padding-top: 1.5rem;
+      padding-bottom: 1.5rem;
+      width: 100%;
+      padding-right: calc(1.5rem* .5);
+      padding-left: calc(1.5rem* .5);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    }
+
+    @media (min-width: 768px) {
+    .container {
+        max-width: 720px;
+    }
+    }
+    @media (min-width: 992px) {
+    .container{
+        max-width: 960px;
+    }
+}
+    .header{
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #dee2e6;
+      padding-bottom: 16px;
+    }
+    .header>img{
+      cursor: pointer;
+    }
+    .headerP{
+      font-size: calc(1.275rem + .3vw);
+      /* font-weight: 600; */
+      margin-left: 8px;
+      cursor: pointer;
+    }
+    .firstBox{
+      border-radius: 0.5rem ;
+      --bs-bg-opacity: 1;
+      background-color: rgba(248, 249, 250, var(--bs-bg-opacity));
+      padding: 3rem ;
+      margin-bottom: 1.5rem ;
+      margin-top: 24px;
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+    }
+    .firstBox>h1{
+      font-size: 44px;
+      font-weight: bold;
+      margin: 0;
+      margin-bottom: 8px;
+    }
+    .firstBox-p{
+      font-size: calc(1.275rem + .3vw);
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+    @media (min-width: 768px) {
+    .firstBox-p {
+        flex: 0 0 auto;
+        width: 66.66666667%;
+    }
+  }
+  .firstBox-btn{
+      width: 170px;
+      height: 48px;
+      background-color: #0d6efd;
+      color: #fff;
+      border-radius: 0.5rem;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+  }
+  .firstBox-btn:hover{
+    background-color: #0a58ca;
+  }
+  .black-box{
+    padding: 3rem;
+    border-radius: 0.5rem;
+    color: #fff;
+    background-color:  RGBA(33,37,41, 1);
+    margin-right: 24px;
+    /* height: 100%; */
+    width: 50%;
+    border: 1px solid RGBA(33,37,41, 1);
+  }
+  .black-box>h2{
+    margin: 0;
+    margin-bottom: 9px;
+    font-size: calc(1.325rem + .9vw);
+    font-weight: 500;
+    line-height: 1.2;
+  }
+  .black-box>p{
+    line-height: 1.5;
+  }
+  .black-box>button{
+    background-color: transparent;
+    color: #f8f9fa;
+    border: 1px solid #f8f9fa;
+    cursor: pointer;
+    border-radius: 0.375rem;
+    padding: 6px 12px;
+    font-size: 16px;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  }
+  .black-box>button:hover{
+    color: #000;
+    background-color: #f8f9fa;
+  }
+
+  .white-box{
+    padding: 3rem;
+    border-radius: 0.5rem;
+    color: #212529;
+    background-color:  RGBA(248, 249, 250, 1);
+    /* margin-right: 24px; */
+    /* height: 100%; */
+    width: 50%;
+    border: 1px solid #dee2e6;
+  }
+  .white-box>h2{
+    margin: 0;
+    margin-bottom: 9px;
+    font-size: calc(1.325rem + .9vw);
+    font-weight: 500;
+    line-height: 1.2;
+  }
+  .white-box>p{
+    line-height: 1.5;
+  }
+  .white-box>button{
+    background-color: transparent;
+    color: #6c757d;
+    border: 1px solid #6c757d;
+    cursor: pointer;
+    border-radius: 0.375rem;
+    padding: 6px 12px;
+    font-size: 16px;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  }
+  .white-box>button:hover{
+    color: #fff;
+    background-color: #6c757d;
+  }
+  </style>
 </head>
-<body>
-  ex
+<body style="margin: 0; display: flex; flex-direction: column; align-items: center;">
+  <div class="container">
+    <div class="header">
+      <a href="https://getbootstrap.com/">
+      <img src="./black.png" width="40px" height="40px">
+     </a>
+     <a href="https://getbootstrap.com/" style="color: black; text-decoration: none;" > 
+      <span class="headerP">Jumbotron example</span>
+    </a>
+    </div>
+    <div class="firstBox">
+      <h1>Custom jumbotron</h1>
+      <p class="firstBox-p">Using a series of utilities, you can create this jumbotron, just like the one in previous versions of Bootstrap. Check out the examples below for how you can remix and restyle it to your liking.</p>
+      <button class="firstBox-btn">Example button</button>
+    </div>
+    <div style="display: flex; ">
+      <div class="black-box">
+        <h2>Change the background</h2>
+        <p>Swap the background-color utility and add a `.text-*` color utility to mix up the jumbotron look. Then, mix and match with additional component themes and more.</p>
+        <button>Example button</button>
+      </div>
+
+      <div class="white-box">
+        <h2>Add borders</h2>
+        <p>Or, keep it light and add a border for some added definition to the boundaries of your content. Be sure to look under the hood at the source HTML here as we've adjusted the alignment and sizing of both column's content for equal-height.</p>
+        <button>Example button</button>
+      </div>
+    </div>
+    <hr style="color: rgba(33, 37, 41, 0.75); margin-top: 1rem; margin-bottom: 1.5rem; height: 1px; border-top: 0;">
+    <span style="color: rgba(33, 37, 41, 0.75);">© 2024</span>
+  </div>
 </body>
 </html>
