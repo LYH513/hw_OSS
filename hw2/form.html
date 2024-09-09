@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    function add(){
+      let data = document.getElementById('input1').value;
+      let arr = data.split(',');
+
+      let ul = document.getElementById('ul1');
+
+      ul.innerHTML ='';
+
+      arr.map(function(item){
+        let list = document.createElement('li');
+        list.textContent = item.trim();
+        ul.appendChild(list);
+      });
+    }
+    
+    function deleteList(){
+      let ul = document.getElementById('ul1');
+      ul.innerHTML ='';
+    }
+
+  </script>
+  <style>
+    h2{
+      /* color: ; */
+    }
+
+    input[type='text']{
+      height: 25px;
+    }
+
+    #add{
+      background-color: green;
+      color: white;
+      border: none;
+      width: 80px;
+      height: 30px;
+      border-radius: 10%;
+      font-size: 15px;
+    }
+    #delete{
+      background-color: red;
+      color: white;
+      border: none;
+      width: 80px;
+      height: 30px;
+      border-radius: 10%;
+      font-size: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <h2>Dynamic Web Page</h2>
+    <input type="text" id="input1" name="input1">
+    <button type="button" id="add" name="add" onclick="add()">추가</button>
+    <button type="button" id="delete" name="delete" onclick="deleteList()">삭제</button>
+    <ul id="ul1"></ul>
+  </div>
+</body>
+</html>
