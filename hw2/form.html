@@ -7,6 +7,10 @@
   <script>
     function add(){
       let data = document.getElementById('input1').value;
+
+      if(data ===''){
+        return;
+      }
       let arr = data.split(',');
 
       let ul = document.getElementById('ul1');
@@ -27,9 +31,6 @@
 
   </script>
   <style>
-    h2{
-      /* color: ; */
-    }
 
     input[type='text']{
       height: 25px;
