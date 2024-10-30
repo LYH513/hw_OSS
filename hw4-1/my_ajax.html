@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.js" 
+    integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" 
+    crossorigin="anonymous"></script>
+</head>
+<body>
+  <button id="btnStu">회원 정보 가져오기</button>
+  <button id="btnAdd">회원 추가</button>
+  <div>
+      <label for="name">이름:</label>
+      <input type="text" id="name" name="name">
+    <label for="age">나이:</label>
+    <input  type="number" id="age" name="age">
+
+    <label for="job">직업:</label>
+    <input  type="text" id="job" name="job">
+    
+    <label for="phoneNumber">번호:</label>
+    <input  type="text" id="phoneNumber" name="phoneNumber">
+  </div>
+
+  <div id="contents"></div>  
+
+  <script>
+    window.onload = function () {
+      let btnStu = document.getElementById("btnStu");
+      let btnAdd = document.getElementById("btnAdd");
+
+      btnStu.addEventListener("click", getStudents);
+      btnAdd.addEventListener("click", postData);
+    }
+
+    // 학생 정보를 서버에서 가져오는 함수
+    function getStudents() {
+      let contents = document.getElementById("contents");
+      const xhr = new XMLHttpRequest();
+
+      xhr.open("GET", "http://localhost:3001/users");
+      xhr.setRequestHeader("Content-Type", "application/json");
+      xhr.send();
+
+      xhr.onload = () => {
+        if (xhr.status === 200) {
+          const res = JSON.parse(xhr.response); 
+          contents.innerHTML = makeList(res);   
+        } else {
+          console.log(xhr.status, xhr.statusText); 
+        }
+      }
+    }
+
+    function makeList(data) {
+      let html = "<ul>";
+      console.log(data);
+      data.forEach(item => {
+        html += `<li> 이름: ${item.name}, 나이: ${item.age}, 직업: ${item.job}, 번호: ${item.phoneNumber}
+          <button onClick="updateData(${item.id})">수정</button>
+          <button onClick="deleteData(${item.id})">삭제</button>
+        </li>`;
+      });
+      html += "</ul>";
+      return html;
+    }
+
+
+    // 데이터를 서버에 추가하는 함수
+    function postData() {
+      let contents = document.getElementById("contents");
+      let name = document.getElementById("name");
+      let age = document.getElementById("age");
+      let job = document.getElementById("job");
+      let phoneNumber = document.getElementById("phoneNumber");
+
+      const xhr = new XMLHttpRequest();
+      xhr.open("POST","http://localhost:3001/users");
+      xhr.setRequestHeader("content-type","application/json;charset=UTF-8")
+      const data = { name: name.value, age: age.value, job: job.value, phoneNumber:phoneNumber.value };
+
+      xhr.send(JSON.stringify(data));
+      xhr.onload = () => {
+        if (xhr.status === 201) {
+          name.value = "";
+          age.value = "";
+          const res = JSON.parse(xhr.response);
+          // getStudents() ;
+        } else {
+          console.log(xhr.status, xhr.statusText);
+        }
+      }
+      }
+
+    //데이터 수정하는 함수
+    function updateData(id) {
+      const xhr = new XMLHttpRequest();
+
+      let contents = document.getElementById("contents");
+      let name = document.getElementById("name");
+      let age = document.getElementById("age");
+      let job = document.getElementById("job");
+      let phoneNumber = document.getElementById("phoneNumber");
+
+      xhr.open("PUT", "http://localhost:3001/users/" +id);
+      xhr.setRequestHeader("content-type", "application/json;charset=UTF-8");
+      const data = { name: name.value, age: age.value, job: job.value, phoneNumber:phoneNumber.value };
+
+      xhr.send(JSON.stringify(data));
+
+      xhr.onload = () => {
+        if (xhr.status === 200) {
+          const res = JSON.parse(xhr.response);
+          console.log(res);
+          // getStudents();
+        } 
+        else {
+          console.log(xhr.status, xhr.statusText);
+        }
+      }
+      }
+
+    function deleteData(id){
+      const xhr = new XMLHttpRequest();
+
+      xhr.open("DELETE", "http://localhost:3001/users/"+id);
+      xhr.setRequestHeader("Content-Type", "application/json");
+      xhr.send();
+
+      xhr.onload = () => {
+        if (xhr.status === 200) {
+          const res = JSON.parse(xhr.response); 
+          // contents.innerHTML = makeList(res); 
+          console.log(xhr.status, res);   
+        } else {
+          console.log(xhr.status, xhr.statusText); 
+        }
+      }
+
+    }
+
+  </script>
+</body>
+</html>
