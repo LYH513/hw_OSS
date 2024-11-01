@@ -43,15 +43,15 @@
       "phoneNumber": "0102346788"
     },
     {
-      "id": "be20",
-      "name": "고라니",
-      "age": "45",
-      "job": "백수",
-      "phoneNumber": "010234333566"
+      "name": "",
+      "age": "",
+      "job": "",
+      "phoneNumber": "",
+      "id": "be20"
     },
     {
       "id": "7e05",
-      "name": "도둑",
+      "name": "수정",
       "age": "33",
       "job": "도둑",
       "phoneNumber": "0102343333333"
@@ -69,6 +69,13 @@
       "age": "74",
       "job": "나무",
       "phoneNumber": "0102343215532"
+    },
+    {
+      "id": "fbdb",
+      "name": "과제완료",
+      "age": "24",
+      "job": "학생",
+      "phoneNumber": "01023432153"
     }
   ]
 }

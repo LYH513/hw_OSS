@@ -77,8 +77,8 @@
         html += `<li class="member"> 
           이름: ${item.name}/ 나이: ${item.age}/ 직업: ${item.job}/ 번호: ${item.phoneNumber}
           <span>
-            <button onClick="updateData(${item.id})" class="btn1">수정</button>
-            <button onClick="deleteData(${item.id})" class="btn2">삭제</button>
+            <button onClick="updateData('${item.id}')" class="btn1">수정</button>
+            <button onClick="deleteData('${item.id}')" class="btn2">삭제</button>
           </span>
         </li>`;
       });
