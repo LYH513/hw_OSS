@@ -7,11 +7,26 @@
   <script src="https://code.jquery.com/jquery-3.7.1.js" 
     integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" 
     crossorigin="anonymous"></script>
+    <style>
+      .member{
+        display: flex;
+        justify-content: space-between;
+        width: 600px;
+        padding-bottom: 5px;
+      }
+      .btn1{
+        background-color: white;
+      }
+      .btn2{
+        background-color: red;
+        color: white;
+      }
+    </style>
 </head>
 <body>
-  <button id="btnStu">회원 정보 가져오기</button>
-  <button id="btnAdd">회원 추가</button>
-  <div>
+  <button id="btnStu" style="background-color: white;">회원 정보 가져오기</button>
+  <button id="btnAdd" style="background-color: white;">회원 추가</button>
+  <div style="margin-top: 10px;">
       <label for="name">이름:</label>
       <input type="text" id="name" name="name">
     <label for="age">나이:</label>
@@ -58,9 +73,12 @@
       let html = "<ul>";
       console.log(data);
       data.forEach(item => {
-        html += `<li> 이름: ${item.name}, 나이: ${item.age}, 직업: ${item.job}, 번호: ${item.phoneNumber}
-          <button onClick="updateData(${item.id})">수정</button>
-          <button onClick="deleteData(${item.id})">삭제</button>
+        html += `<li class="member"> 
+          이름: ${item.name}/ 나이: ${item.age}/ 직업: ${item.job}/ 번호: ${item.phoneNumber}
+          <span>
+            <button onClick="updateData(${item.id})" class="btn1">수정</button>
+            <button onClick="deleteData(${item.id})" class="btn2">삭제</button>
+          </span>
         </li>`;
       });
       html += "</ul>";
@@ -125,6 +143,8 @@
     function deleteData(id){
       const xhr = new XMLHttpRequest();
 
+      console.log("id 확인", id);
+      
       xhr.open("DELETE", "http://localhost:3001/users/"+id);
       xhr.setRequestHeader("Content-Type", "application/json");
       xhr.send();
@@ -135,9 +155,12 @@
           // contents.innerHTML = makeList(res); 
           console.log(xhr.status, res);   
         } else {
-          console.log(xhr.status, xhr.statusText); 
+          console.log("삭제 실패", xhr.status, xhr.statusText);
         }
       }
+      xhr.onerror = () => {
+        console.log("DELETE 요청 실패 - 네트워크 오류 발생");
+      };
 
     }
 
